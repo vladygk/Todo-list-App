@@ -2,7 +2,7 @@
 ## Created with ASP.NET MVC ##
 <img src="https://www.brainspire.com/hubfs/asp.net-logo.png" width="100px"/>
 
-##Main functionality##
+## Main functionality ##
 - Persits tasks in DB (MSSQL)
 - Tasks can be edited and deleted
 
