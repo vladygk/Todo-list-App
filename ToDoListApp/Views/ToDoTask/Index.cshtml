@@ -1,0 +1,81 @@
+﻿@model IEnumerable<ToDoTask>
+
+<a asp-action="Create" class="btn btn-primary m-2">Add Task</a>
+@if (Model.ToList().Count == 0)
+{
+    <h2>No more tasks left</h2>
+}
+else
+{
+    <div class="container">
+        <div class="row text-secondary border-bottom border-1 border-secondary">
+
+            <div class="col-2 text-center">
+                @Html.DisplayNameFor(model => model.Name)
+            </div>
+
+            <div class="col-2 text-center">
+                @Html.DisplayNameFor(model => model.Assignment.AssignedTo)
+            </div>
+            <div class="col-2 text-center">
+                @Html.DisplayNameFor(model => model.Assignment.CreatedBy)
+            </div>
+            <div class="col-2 text-center">
+                @Html.DisplayNameFor(model => model.CreatedOn)
+            </div>
+            <div class="col-2 text-center">
+                @Html.DisplayNameFor(model => model.Description)
+            </div>
+           
+
+            <div class="col-1 text-center">
+                @Html.DisplayNameFor(model => model.Done)
+            </div>
+            <div class="col-1"></div>
+        </div>
+
+
+
+        @foreach (var task in Model)
+        {
+            <div class="row mb-2">
+                <div class="col-2 border-end border-2 border-primary">
+                    @task.Name
+                </div>
+                <div class="col-2 border-end border-2 border-primary">
+                    @task.Assignment.AssignedTo
+                </div>
+                <div class="col-2 border-end border-2 border-primary">
+                    @task.Assignment.CreatedBy
+                </div>
+                <div class="col-2 border-end border-2 border-primary">
+                    @task.CreatedOn.ToString("d")
+                </div>
+                <div class="col-2 border-end border-2 border-primary">
+                    @task.Description
+                </div>
+                <div class="col-1 border-end border-2 border-primary text-center">
+                    @if (task.Done)
+                    {
+                        <h3><i class="bi bi-check"></i></h3>
+                    }
+                    else
+                    {
+                        <h3><i class="bi bi-hourglass-split"></i></h3>
+                    }
+
+                </div>
+                <div class="col-1 justify-content-evenly d-flex flex-row border-end border-2 border-primary">
+
+                    <a asp-action="Edit" asp-route-id="@task.Id" class="btn btn btn-primary w-50 m-1 " ><i class="bi bi-pencil-fill "></i></a>
+                    <a asp-action="Delete"  asp-route-id="@task.Id" class="btn btn btn-secondary w-50 m-1"><i class="bi bi-trash-fill"></i></a>
+
+                </div>
+
+
+            </div>
+        }
+
+
+    </div>
+}
