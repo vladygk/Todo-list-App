@@ -4,7 +4,7 @@
 
 ## Main functionality ##
 - Persits tasks in DB (MSSQL)
-- Tasks can be edited and deleted
+- CRUD operations on Tasks
 
 ## API functioanality ##
 
